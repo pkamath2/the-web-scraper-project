@@ -5,6 +5,10 @@ import re
 
 def get_lotr_characters(characters_soup, lotr_file):
     all_divs_for_charList = characters_soup.findAll("div", class_="listchar")
+    lotr_file.write("Character")
+    lotr_file.write(",")
+    lotr_file.write("Race")
+    lotr_file.write("\n")
     for character in all_divs_for_charList:
         character_name = character.text
         character_type = ''
@@ -19,7 +23,7 @@ def get_lotr_characters(characters_soup, lotr_file):
         if "dwarf" in character["class"]:
             character_type = "dwarf"
         if len(character_name) > 0:
-            lotr_file.write(character_name.strip())
+            lotr_file.write(character_name.strip().replace('"',"'"))
             lotr_file.write(",")
             lotr_file.write(character_type)
             lotr_file.write("\n")
