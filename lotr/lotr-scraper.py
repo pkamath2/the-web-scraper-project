@@ -23,7 +23,7 @@ def get_lotr_characters(characters_soup, lotr_file):
         if "dwarf" in character["class"]:
             character_type = "dwarf"
         if len(character_name) > 0:
-            lotr_file.write(character_name.strip().replace('"',"'"))
+            lotr_file.write('"'+character_name.strip().replace('"',"'")+'"')
             lotr_file.write(",")
             lotr_file.write(character_type)
             lotr_file.write("\n")
