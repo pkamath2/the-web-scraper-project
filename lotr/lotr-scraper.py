@@ -1,7 +1,5 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import pandas as pd
-import re
 
 def get_lotr_characters(characters_soup, lotr_file):
     all_divs_for_charList = characters_soup.findAll("div", class_="listchar")
